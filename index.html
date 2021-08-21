@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Wikify is a Search Engine that is powered by wikipedia API"
+    />
+    <meta name="keywords" content="Search, Search Engine, Wikipedia, Results" />
+    <meta name="theme-color" content="#000000" />
+    <meta author="author" content="Ahanaf Abdullah" />
+    <link rel="apple-touch-icon" href="icons/apple-icon-180.png" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Scss styles -->
+    <link rel="stylesheet" href="./dist/css/style.min.css" />
+    <link rel="shortcut icon" href="./asset/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Wikify!</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="offscreen">wikify a wikipedia powered Search Engine</h1>
+      <section class="searchEntry">
+        <h2 class="offscreen">Search Term Entry</h2>
+        <div class="logo" aria-hidden="true">
+          <span class="blue">W</span>
+          <span class="red">i</span>
+          <span class="yellow">k</span>
+          <span class="blue">i</span>
+          <span class="green">f</span>
+          <span class="red">y</span>
+          <span class="red exclaim">!</span>
+        </div>
+        <form id="searchBar" class="searchBar" role="search">
+          <label class="offscreen" for="search"
+            >Enter a search term or phrase</label
+          >
+          <input id="search" type="text" autocomplete="off" role="searchbox" />
+          <div
+            id="clear"
+            class="none button clear"
+            role="button"
+            tabindex="0"
+            aria-label="Clear search terms"
+          >
+            <i class="fas fa-times"></i>
+          </div>
+          <button
+            id="searchButton"
+            class="button searchButton"
+            type="submit"
+            aria-label="Submit button"
+          >
+            <i class="fas fa-search blue"></i>
+          </button>
+        </form>
+      </section>
+      <section class="results">
+        <h2 class="offscreen">Search Results</h2>
+        <div class="statsBar">
+          <div id="stats" class="stats" aria-live="assertive"></div>
+        </div>
+        <div id="searchResults" class="searchResults">
+          <div class="resultItem">
+            <div class="resultContents">
+              <div class="resultText">
+                <p class="resultDescription">Write some thing to get results</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        <span aria-hidden="true">&lt;&lt;</span> Powered by
+        <a href="https://www.wikipedia.org" target="_blank" title="Wikipedia"
+          >Wikipedia</a
+        >
+        <span aria-hidden="true">&gt;&gt;</span>
+      </p>
+    </footer>
+    <script src="./Js/main.js" type="module"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </body>
+</html>
